@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slot Machine</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        .slot-container { display: flex; justify-content: center; margin: 20px; }
+        .slot { font-size: 50px; margin: 0 10px; border: 2px solid black; padding: 20px; width: 80px; }
+        button { font-size: 20px; padding: 10px 20px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h1>Slot Machine 🎰</h1>
+    <div class="slot-container">
+        <div class="slot" id="slot1">❓</div>
+        <div class="slot" id="slot2">❓</div>
+        <div class="slot" id="slot3">❓</div>
+    </div>
+    <button onclick="spin()">Spin</button>
+    <h2 id="result"></h2>
+
+    <script>
+        function spin() {
+            let symbols = ['🍒', '🍋', '🍉', '⭐', '🔔'];
+            let slot1 = symbols[Math.floor(Math.random() * symbols.length)];
+            let slot2 = symbols[Math.floor(Math.random() * symbols.length)];
+            let slot3 = symbols[Math.floor(Math.random() * symbols.length)];
+
+            document.getElementById('slot1').innerText = slot1;
+            document.getElementById('slot2').innerText = slot2;
+            document.getElementById('slot3').innerText = slot3;
+
+            if (slot1 === slot2 && slot2 === slot3) {
+                document.getElementById('result').innerText = "🎉 You Win! 🎉";
+            } else {
+                document.getElementById('result').innerText = "Try Again!";
+            }
+        }
+    </script>
+
+</body>
+</html>
